@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title view 
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        link(rel="stylesheet", href="/stylesheets/style.css")
+    body
+        h1 Server Side Javascript
+        ul 
+            -for(let i=0; i<5; i++)
+                    a(href=`#`)
+                        li=_list[i]
+        form(action="/new", method="post" id="form")
+            input(type="text", name="name" placeholder="name")
+            br
+            input(type="textarea", name = "info")
+            br
+            button(type="submit" value="등록하기") 등록하기

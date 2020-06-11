@@ -1,0 +1,17 @@
+doctype html
+
+html 
+    head
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        title New
+    
+    body
+        h1 Server Side JavaScript
+
+        form(method="post" action="/new")
+        p
+            input(type="text", name="name", placeholder="타이틀")
+        p    
+            textarea(name="more", cols="30", rows="10", placeholder="설명")
+        p   
+            button(type="submit" name="submit") 등록

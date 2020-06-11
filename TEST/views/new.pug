@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title new
+    body
+        h1 Server Side JavaScript
+
+        form(action="/subject/new", method="post")
+            input(type="text", name="title", placeholder="제목을 입력해주세요")
+            p
+            textarea(name="desc", cols="30", rows="10" placeholder="내용을 입력해주세요")
+            p
+            button(type="submit") 등록하기
+        div
+            article=title
