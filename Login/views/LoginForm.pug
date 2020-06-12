@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title LoginForm
+    body
+        a(href="/Login")
+            h1 로그인
+        form(action="/Login/LoginForm", method="post")
+            input(type="text", name="ID", placeholder="아이디를 입력해주세요.")
+            p
+            input(type="password", name="PW", placeholder="비밀번호를 입력해주세요.")
+            p
+            button(type="submit") 로그인
+        
+        p=_result

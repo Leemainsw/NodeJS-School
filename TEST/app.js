@@ -1,7 +1,10 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
-const bodyparser = require('body-parser')
+const bodyparser = require('body-parser');
+const { render } = require('pug');
 const port = 3000;
+
 
 app.set('views', './views')
 app.set('view engine', 'pug')
@@ -12,17 +15,48 @@ app.use(bodyparser.urlencoded({
 }))
 
 app.get('/subject', (req, res)=>{
-    res.render('view', {
-        title: 'Welcome'
-    });
+    fs.readdir('./data', (err, files)=>{
+        if(err)console.log(err);
+        console.log("정상처리 되었습니다!");
+    
+        res.render('view', {
+            title: 'Welcome',
+            docs: files
+        });
+    })
 })
 
 app.get('/subject/new', (req, res)=>{
-    res.render('new');
+    fs.readdir('./data', (err, files)=>{
+        if(err)console.log(err);
+        console.log("정상처리 되었습니다!");
+    
+        res.render('new', {
+            title: 'Welcome',
+            docs: files
+        });
+    })
 })
 
-app.listen(port, (req, res)=>{
-    console.log("Connect Express Server");
+app.get('/subject/:topic', (req, res)=>{
+    const topic = req.params.topic;
+    // 파일 내용을 읽어온다. readFile
+    fs.readFile('./data/'+topic, (err, data)=>{
+        if(err) throw err;
+        fs.readdir('./data', (err, files)=>{
+            if(err)console.log(err);
+            console.log("정상처리 되었습니다!");
+        
+            res.render('view', {
+                title: 'Welcome',
+                docs: files,
+                _FileData : data,
+                _topic : topic
+            });
+        })
+        console.log(data);
+    })
+    // Render 
 })
 
 app.post('/subject/new', (req, res)=>{
@@ -37,16 +71,30 @@ app.post('/subject/new', (req, res)=>{
          _desc : req.body.desc
     }
 
-    //3
-    // const a=req.body;
-    // const _title = a.title;
-    // const _desc = a.desc;
-    const output = 
-    `
-        <h2>${data._title}</h2>
-        <p>${data._desc}</p>
-    `
-    res.send(output)
+    // //3
+    // // const a=req.body;
+    // // const _title = a.title;
+    // // const _desc = a.desc;
+    // const output = 
+    // `
+    //     <h2>${data._title}</h2>
+    //     <p>${data._desc}</p>
+    // `
+    
+    fs.writeFile('./data/' + data._title  , data._desc ,(err) =>{
+        console.log('/data' + data._title);
+        if(err){
+            console.log(err);
+        } 
+        console.log("정상적으로 등록되었습니다.");
+        // /subject로 리다이렉스 시키기
+         res.redirect('/subject');
+    })
+
+})
+
+app.listen(port, (req, res)=>{
+    console.log("Connect Express Server");
 })
 
 // view pug로를 만들고

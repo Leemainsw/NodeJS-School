@@ -3,8 +3,18 @@ html
     head
         title=title
     body
-        h1 Server Side JavaScript
-    
+        a(href="/subject")
+            h1 Server Side JavaScript
+        ul 
+        each topic in docs
+            a(href="/subject/" + topic)
+                li=topic
     h3 Welcome
     p Hello, Javascript for Server
     a(href="/subject/new") new
+
+    p
+        b=_topic
+    p
+        b=_FileData
+

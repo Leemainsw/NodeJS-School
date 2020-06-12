@@ -3,13 +3,20 @@ html
     head
         title new
     body
-        h1 Server Side JavaScript
-
-        form(action="/subject/new", method="post")
-            input(type="text", name="title", placeholder="제목을 입력해주세요")
-            p
-            textarea(name="desc", cols="30", rows="10" placeholder="내용을 입력해주세요")
-            p
-            button(type="submit") 등록하기
-        div
-            article=title
+        a(href="/subject")
+            h1 Server Side JavaScript
+        ul 
+        each topic in docs
+            a(href="#")
+                li=topic
+        h3 Welcome
+        p Hello, Javascript for Server
+        a(href="subject/new") new
+        p
+        div(style="display: block; position: relative;")=code
+            form(action="/subject/new", method="post" style="position: absolute;")
+                input(type="text", name="title", placeholder="제목을 입력해주세요")
+                p
+                textarea(name="desc", cols="30", rows="10" placeholder="내용을 입력해주세요")
+                p
+                button(type="submit") 등록하기
