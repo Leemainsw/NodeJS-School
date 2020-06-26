@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        title="파일업로드"
+
+    body
+        form(method="post", action="/Upload", enctype="multipart/form-data")
+            p
+            input(type="file", name="userfile")
+            p
+            input(type="submit", value="파일업로드")
+    
