@@ -1,0 +1,18 @@
+doctype html
+html
+    head 
+        title Form
+    
+    body
+        form(action="/new", method="post")
+            label 이름
+            input(type="text", name="name")
+            br
+            label 나이
+            input(type="text", name="age")
+            br
+            label 주소
+            input(type="text", name="addr")
+            br
+            br
+            button(type="submit") 접수하기
