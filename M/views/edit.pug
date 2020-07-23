@@ -1,0 +1,21 @@
+doctype html
+html
+    head 
+        title Form
+    
+    body
+        h1 수정하기
+        form(action="/edit", method="post")
+            label 이름
+            input(type="text", name="name")
+            br
+            label 나이
+            input(type="text", name="age")
+            br
+            label 주소
+            input(type="text", name="addr")
+            br
+            br
+            button(type="submit") 수정하기
+
+        

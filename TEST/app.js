@@ -81,7 +81,7 @@ app.post('/subject/new', (req, res)=>{
     //     <p>${data._desc}</p>
     // `
     
-    fs.writeFile('./data/' + data._title  , data._desc ,(err) =>{
+    fs.writeFile('./data/' + data._title  , data._desc , (err) => {
         console.log('/data' + data._title);
         if(err){
             console.log(err);

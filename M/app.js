@@ -43,6 +43,7 @@ const person = mongoose.Schema({
 const Student = mongoose.model('student', person);
 
 app.get('/', (req,res)=>{
+    res.send('<h1>Hello Main</h1>')
     console.log('hi root');
 })
 
@@ -66,6 +67,48 @@ app.post('/new', (req, res)=>{
             console.log('Saved');
             res.redirect('/');
         }
+    })
+})
+
+// 2.목록보기
+app.get('/list', (req, res)=>{
+    console.log('List')
+    Student.find({}, (err, result)=>{
+        if(err)
+        {
+            console.log(err);
+            return;
+        }
+
+        console.log(result);
+        res.render('list', {docs:result});
+    })
+})
+
+// 수정할 때는 findone() save() 만 사용
+app.get('/edit', (req, res)=>{
+    res.render('edit');
+})
+
+app.post('/edit', (req, res)=>{
+    let _name = req.body.name;
+    let _age = req.body.age;
+    let _addr = req.body.addr;
+
+    Student.findOne({name: _name}, (err, result)=>{
+        if(err) {
+            console.log(err);
+            return;
+        }
+        result.name= _name;
+        result.age= _age;
+        result.addr= _addr;
+
+        result.save((err, docs)=>{
+            if(err) {console.log(err); return ;}
+            console.log('Updated!');
+            res.redirect('/list');
+        })
     })
 })
 

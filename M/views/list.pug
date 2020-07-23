@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        h1 회원 리스트 보기
+        // docs를 사용해야 함 for-each
+        ul
+        each val in docs
+            li= val.name
+              = val.age
+              = val.addr
+
+        a(href="/edit") 수정하기
