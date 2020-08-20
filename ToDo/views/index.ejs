@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    </head>
+    <body style="padding: 100px;">
+        <h1>My ToDo List</h1>
+        <form style="margin-bottom: 50px;" method="post" action="/todo">
+            <input type="text" name="content" class="form-control add-todo" placeholder="해야할 일" style="width: 200px; display:inline-block;">
+            <button type="submit" class="btn btn-success">추가하기</button>
+        </form>
+        
+
+        <table class="table table-hover"> 
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>내용</th>
+                    <th>작성날짜</th>
+                    <th>완료</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < docs.length; i++){ %>
+                    <tr>
+                        <td><%= docs[i].id %></td>
+                        <td><%= docs[i].content %></td>
+                        <td><%= docs[i].wdate %></td>
+                        <td><button id="complete" type="submit" class="btn btn-success">완료</button></td>
+                        <td>
+                            <form method="post" action="/delete/<%=docs[i].id%>">
+                                <button id="del" type="submit" class="btn btn-danger">삭제</button>
+                            </form>
+                        </td>
+                        <!-- <a href="/delete/<%=docs[i].id%>">삭제</a> -->
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>    
+       
+</html>
