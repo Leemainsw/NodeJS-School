@@ -25,7 +25,7 @@ else {
     console.log('mysql db error');
 }
 
-const port = 3000;
+const port = 3004;
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -39,7 +39,8 @@ app.locals.pretty = true;
 let sql = {
     insert : 'INSERT INTO todo(content) values(?);',
     list: 'select * from todo order by id desc',
-    update: 'update todo set ? = value where id=(?)',
+    edit: 'select * from todo where id =(?)',
+    update: 'update todo set content = (?) where id=(?)',
     delete: 'delete from todo where id=(?)'
 }
 
@@ -95,6 +96,38 @@ app.post('/delete/:id', (req, res)=>{
         }
     })
 });
+
+app.get('/edit/:id', (req, res)=>{
+    const _id = req.params.id;
+    conn.query(sql.edit, [_id], (err, rows)=>{
+        if(err)
+        {
+            console.log(err); 
+            return;
+        }
+        else{
+            res.render('edit', {data:rows[0]}); 
+        }
+    })
+})
+
+app.post('/edit/:id', (req, res)=>{
+    const _id = req.params.id;
+    const _content = req.body.content;
+
+    conn.query(sql.update, [_content, _id], (err)=>{
+        if(err)
+            console.log(err);
+        else
+            console.log('Updated');
+
+        res.redirect('/todo');
+    });
+
+    // update query 사용
+    // 테이블도 수정되어야 함
+    // 리스트 보이게 redirect
+})
 
 app.get('/', (req, res)=>{
     res.send('<h1>Hi doodles</h1>');

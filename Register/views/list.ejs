@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <%- include ('./header.ejs') %>
+    </head>
+    <body style="padding: 100px;">
+        <h1>회원 리스트</h1>        
+        
+        <table class="table table-hover"> 
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>회원 아이디</th>
+                    <th>회원 비밀번호</th>
+                    <th>회원 이름</th>
+                    <th>회원 이메일</th>
+                    <th>회원 전화번호</th>
+                    <th>가입 날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < docs.length; i++){ %>
+                    <tr>
+                        <td><%= docs[i].id %></td>
+                        <td><%= docs[i].userid %></td>
+                        <td><%= docs[i].passwd %></td>
+                        <td><%= docs[i].username %></td>
+                        <td><%= docs[i].email %></td>
+                        <td><%= docs[i].tel %></td>
+                        <td><%= docs[i].regDate %></td>
+                        <td><a href="/edit/<%=docs[i].id%>">수정</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>    
+       
+</html>

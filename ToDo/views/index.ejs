@@ -13,7 +13,7 @@
     <body style="padding: 100px;">
         <h1>My ToDo List</h1>
         <form style="margin-bottom: 50px;" method="post" action="/todo">
-            <input type="text" name="content" class="form-control add-todo" placeholder="해야할 일" style="width: 200px; display:inline-block;">
+            <input type="text" name="content" class="form-control add-todo" placeholder="해야할 일" value="오늘 할 일" style="width: 200px; display:inline-block;" onclick='this.value=" "'>
             <button type="submit" class="btn btn-success">추가하기</button>
         </form>
         
@@ -34,13 +34,17 @@
                         <td><%= docs[i].id %></td>
                         <td><%= docs[i].content %></td>
                         <td><%= docs[i].wdate %></td>
-                        <td><button id="complete" type="submit" class="btn btn-success">완료</button></td>
+                        <td>
+                            <form method="post" action="/complete/<%=docs[i].id%>">
+                                <button id="complete" type="submit" class="btn btn-success">완료</button>
+                            </form>
+                        </td>
                         <td>
                             <form method="post" action="/delete/<%=docs[i].id%>">
                                 <button id="del" type="submit" class="btn btn-danger">삭제</button>
                             </form>
                         </td>
-                        <!-- <a href="/delete/<%=docs[i].id%>">삭제</a> -->
+                        <td><a href="/edit/<%=docs[i].id%>">수정</a></td>
                     </tr>
                 <% } %>
             </tbody>

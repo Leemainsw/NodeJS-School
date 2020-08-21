@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            edit
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    </head>
+    <body style="padding: 100px;">
+        <h1 style="margin-bottom:50px;">My ToDo List Edit</h1>
+        
+        <form style="margin-bottom: 50px;" method="post" action="/edit/<%=data.id %>">
+            <input type="text" name="content" class="form-control add-todo" placeholder="해야할 일"
+             value=<%=data.content %> style="width: 200px; display:inline-block;" onclick='this.value=" "'>
+            <button type="submit" class="btn btn-success">수정하기</button>
+        </form>
+    </body>    
+</html>
