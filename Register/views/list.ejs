@@ -30,13 +30,14 @@
                         <td><%= docs[i].tel %></td>
                         <td><%= docs[i].regDate %></td>
                         <td><a href="/edit/<%=docs[i].id%>">수정</a></td>
+                        <td><a href="/delete/<%=docs[i].id%>" style="color:red;">삭제</a></td>
                     </tr>
                 <% } %>
             </tbody>
         </table>
 
         <div>
-            <a class="btn btn-success" href="#">추가하기</a>
+            <a class="btn btn-success" href="/join">추가하기</a>
         </div>
     </body>    
        
