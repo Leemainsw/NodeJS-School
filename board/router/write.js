@@ -5,15 +5,25 @@ const dbconfig=require('../model/database');
 const conn=mysql.createConnection(dbconfig);
 
 const sql={
-    select: 'SELECT * FROM board;'
+    insert: 'INSERT INTO board(displayName, password, title, content) VALUES (?);'
 }
 
+router.post('/', (req, res)=>{
+    const _displayname=req.body.displayname;
+    const  _title=req.body.title;
+    const  _content=req.body.content;
+    const _password=req.body.password;
+
+    const inputMSG = [_displayname, _password, _title, _content];
+    conn.query(sql.insert, [inputMSG], (err)=>{
+        if(err)console.log(err);
+        else console.log('Inserted');
+    })
+
+    res.redirect('list');
+})
 router.get('/', (req, res)=>{
-     conn.query(sql.select, (err, result)=>{
-         if(err) {console.log(err);}
-         else res.render('list', {docs:result});
-     })
-     
+     res.render('write');
 })
 
 module.exports=router;
