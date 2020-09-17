@@ -1,0 +1,19 @@
+/* section */
+.wrapper section { width: 100%; height: 980px; background: #d5d5d5;}
+.wrapper section form {width: 575px; height: 560px; margin: 0 auto; padding: 20px; text-align: center;}
+.wrapper section form .form-header{ width: 400px; height: 100px; text-align: center; margin: 0 auto; padding-top: 20px; font-size: 55px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+.wrapper section form .form-header h1{color: white;}
+.wrapper section form .input-group { height: 500px; margin-top: 80px;}
+.wrapper section form input { width: 500px; height: 50px; padding: 10px; display: block; margin: 30px auto; border-radius: 50px; font-size: 30px;  border: 0; outline-offset: 0; outline-style: none; text-align: center;
+    box-shadow: 0px 10px 20px rgba(179, 179, 179, 0.555);
+}
+.wrapper section form button { width: 200px; height: 60px; margin-top: 20px; border:0; border-radius: 50px; outline-style: none; font-size: 20px; background-color: #fff; cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+}
+.wrapper section form button:hover { background-color: #2EE59D; color: #fff; transform: translateY(-7px);
+    box-shadow: 0px 5px 5px rgba(46, 229, 157, 0.4);
+}
+.wrapper section form small { display: block; margin: 30px auto; font-size: 20px;}
+.wrapper section form small a {color: red;}

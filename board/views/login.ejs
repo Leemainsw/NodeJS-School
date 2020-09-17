@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Style Sheet -->
+    <link href="./css/reset.css"  rel="stylesheet">
+    <link href="./css/sign.css"  rel="stylesheet">
+
+    <!-- Google Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&display=swap" rel="stylesheet">
+    
+    <title>로그인</title>
+</head>
+<body>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- section -->
+        <section>
+            <form method="post" action="/login">
+                <div class=form-header>
+                    <h1>Login</h1>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="userid" placeholder="input id" name="userid" required>
+                    <input type="password" id="userpw" placeholder="input password" name="userpw" required>
+
+                    <button type="submit">Login</button>
+                    <small>first time? <a href="/signup">Sign up</a></small>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

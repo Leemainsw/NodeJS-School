@@ -4,8 +4,14 @@
         <title>
             LIST
         </title>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        
+        <link href="./css/reset.css"  rel="stylesheet">
+        <!-- Google Web Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&display=swap" rel="stylesheet">
+    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -13,7 +19,7 @@
     <body style="padding: 100px;">
         <h1>Board List</h1>
         <a href="/write"><button type="submit" class="btn btn-success" style="float:right; margin: 20px;">글쓰기</button></a>
-
+        <a href="/logout"><button type="submit" class="btn btn-danger" style="float:right; margin: 20px;">로그아웃</button></a>
         <table class="table table-hover"> 
             <thead>
                 <tr>
@@ -24,18 +30,18 @@
                 </tr>
             </thead>
             <tbody>
-                <% for (var i = 0; i < docs.length; i++){ %>
+                <% for (var i = 0; i < docs.length; i++){ %>  
                     <tr>
                         <td><%= docs[i].id %></td>
-                        <td><%= docs[i].user_name %></td>
-                        <td><%= docs[i].title %></td>
+                        <td><%= docs[i].username %></td>
+                        <td><a href="/list/<%=docs[i].id%>"><%= docs[i].title %></a></td>
                         <td><%= docs[i].w_date %></td>
                         <td>
                             <form method="post" action="/delete/<%=docs[i].id%>">
                                 <button id="del" type="submit" class="btn btn-danger">삭제</button>
                             </form>
                         </td>
-                        <td><a href="/edit/<%=docs[i].id%>">수정</a></td>
+                        <td style="font-size: 15px;"><a href="/edit/<%=docs[i].id%>">수정</a></td>
                     </tr>
                 <% } %>
             </tbody>

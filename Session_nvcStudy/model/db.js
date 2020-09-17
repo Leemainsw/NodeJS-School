@@ -4,7 +4,6 @@ const session = require('express-session');
 const mysql = require('mysql');
 var MySQLStore = require('express-mysql-session')(session);
 
-
 var options = {
     host: 'localhost',
     user: 'root',

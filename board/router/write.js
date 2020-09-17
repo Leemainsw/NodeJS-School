@@ -5,16 +5,17 @@ const dbconfig=require('../model/database');
 const conn=mysql.createConnection(dbconfig);
 
 const sql={
-    insert: 'INSERT INTO board(displayName, password, title, content) VALUES (?);'
+    insert: 'INSERT INTO board(displayName, username, title, content) VALUES (?);'
 }
 
 router.post('/', (req, res)=>{
-    const _displayname=req.body.displayname;
     const  _title=req.body.title;
     const  _content=req.body.content;
-    const _password=req.body.password;
+    const _displayname=req.session.displayName;
+    const _username=req.session.userName;
+    
+    const inputMSG = [_displayname, _username, _title, _content];
 
-    const inputMSG = [_displayname, _password, _title, _content];
     conn.query(sql.insert, [inputMSG], (err)=>{
         if(err)console.log(err);
         else console.log('Inserted');
@@ -22,8 +23,9 @@ router.post('/', (req, res)=>{
 
     res.redirect('list');
 })
+
 router.get('/', (req, res)=>{
-     res.render('write');
+     res.render('write', {displayname:req.session.displayName});
 })
 
 module.exports=router;
