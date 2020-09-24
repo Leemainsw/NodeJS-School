@@ -8,7 +8,7 @@ const sql={
     delete: 'DELETE FROM board WHERE id=(?);'
 }
 
-router.post('/:id', (req, res)=>{
+router.delete('/:id', (req, res)=>{
     const _id = req.params.id;
 
     conn.query(sql.delete, [_id], (err)=>{
@@ -16,11 +16,11 @@ router.post('/:id', (req, res)=>{
         else console.log('Deleted');
     })
 
-    res.redirect('/login');
+    res.redirect('/list');
 });
 
 router.get('/', (req, res)=>{
-     res.render('login');
+    res.render('list');
 })
 
 module.exports=router;

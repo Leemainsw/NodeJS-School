@@ -10,7 +10,7 @@
         
         <link href="./css/reset.css"  rel="stylesheet">
         <!-- Google Web Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -37,7 +37,7 @@
                         <td><a href="/list/<%=docs[i].id%>"><%= docs[i].title %></a></td>
                         <td><%= docs[i].w_date %></td>
                         <td>
-                            <form method="post" action="/delete/<%=docs[i].id%>">
+                            <form method="post" action="/delete/<%=docs[i].id%>?_method=DELETE">
                                 <button id="del" type="submit" class="btn btn-danger">삭제</button>
                             </form>
                         </td>
