@@ -16,11 +16,11 @@ router.delete('/:id', (req, res)=>{
         else console.log('Deleted');
     })
 
-    res.redirect('/list');
+    res.redirect('/page');
 });
 
 router.get('/', (req, res)=>{
-    res.render('list');
+    res.render('page');
 })
 
 module.exports=router;

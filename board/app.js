@@ -51,6 +51,9 @@ app.use('/edit', editRouter);
 const pageRouter = require('./router/page');
 app.use('/page', pageRouter);
 
+const searchRouter = require('./router/search');
+app.use('/search', searchRouter);
+
 app.listen(port, (req, res)=>{
     console.log('connected express server');
 })

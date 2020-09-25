@@ -24,7 +24,7 @@ router.post('/', (req, res)=>{
                 req.session.displayName = rows[0].displayName;
                 req.session.userName = rows[0].username;
                 req.session.save(function(){
-                    res.send(`<script type="text/javascript">alert("로그인 성공!"); location.href="/list";</script>`)
+                    res.send(`<script type="text/javascript">alert("로그인 성공!"); location.href="/page";</script>`)
                 });
 
             }
@@ -37,7 +37,7 @@ router.post('/', (req, res)=>{
 });
 
 router.get('/', (req, res)=>{   
-     res.render('login');
+    res.render('login');
 })
 
 module.exports=router;

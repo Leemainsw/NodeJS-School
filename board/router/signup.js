@@ -17,7 +17,10 @@ router.post('/', (req, res)=>{
     const _email = req.body.email;
     const _tel = req.body.tel;
 
-    if(_password != _passwordchk) { res.send(`<script type="text/javascript">alert("비밀번호가 다릅니다."); location.href="/SignUp";</script>`);}
+    if(_password != _passwordchk) 
+    {
+        res.send(`<script type="text/javascript">alert("비밀번호가 다릅니다."); location.href="/signup";</script>`);
+    }
 
     const input = [_username, _displayname, _password, _email, _tel];
 

@@ -36,7 +36,7 @@ router.put('/:id', (req, res)=>{
         else
             console.log('Updated');
 
-        res.redirect('/list');
+        res.redirect('/page');
     });
 })
 
