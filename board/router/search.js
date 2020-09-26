@@ -6,8 +6,9 @@ const conn=mysql.createConnection(dbconfig);
 
 const sql={
     searchName: 'SELECT * FROM board WHERE username=(?)',
-    searchTitle: 'SELECT * FROM board WHERE title=(?)'
+    searchTitle: 'SELECT * FROM board WHERE title LIKE %?%',
 }
+
 
 router.post('/',(req,res) => {
 
@@ -18,7 +19,8 @@ router.post('/',(req,res) => {
         if(select == "title")
         {
             var title = req.body.searchText;
-            conn.query(sql.searchTitle, [title], function (err, rows) {
+            var searchTitle='SELECT * FROM board WHERE title LIKE "%' + title + '%"';
+            conn.query(searchTitle, function (err, rows) {
                 if (err) console.error("err : " + err);
                 res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true});
             });
