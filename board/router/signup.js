@@ -17,20 +17,22 @@ router.post('/', (req, res)=>{
     const _email = req.body.email;
     const _tel = req.body.tel;
 
-    if(_password != _passwordchk) 
+    if(!(_password === _passwordchk)) 
     {
-        res.send(`<script type="text/javascript">alert("비밀번호가 다릅니다."); location.href="/signup";</script>`);
+        res.send('<script type="text/javascript">alert("비밀번호가 다릅니다."); location.href="/signup";</script>');
     }
+    else
+    {
+        const input = [_username, _displayname, _password, _email, _tel];
 
-    const input = [_username, _displayname, _password, _email, _tel];
 
-
-    conn.query(sql.insert, [input], (err)=>{
-        if(err){console.log(err); return;}
-        else {console.log('Inserted');}
-
-        res.redirect('/login');  
-    })
+        conn.query(sql.insert, [input], (err)=>{
+            if(err){console.log(err); return;}
+            else {console.log('Inserted');}
+    
+            res.redirect('/login');  
+        });
+    }
 })
 
 router.get('/', (req, res)=>{

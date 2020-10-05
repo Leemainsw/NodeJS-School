@@ -12,13 +12,24 @@ const sql={
 router.post('/', (req, res)=>{
     const _id = req.body.userid;
     const _password =req.body.userpw;
+
     conn.query(sql.select, [_id], (err, rows)=>{
         if(err) {
             console.log(err); 
-            if(err.sqlMessage == 'Query was empty'){res.send(`<script type="text/javascript">alert("해당하는 계정이 없습니다."); location.href="/login";</script>`)};
+            if(err.sqlMessage == 'Query was empty'){
+                res.send(`<script type="text/javascript">alert("해당하는 계정이 없습니다."); location.href="/signup";</script>`)
+            }
+            else
+            {
+                res.send(`<script type="text/javascript">alert("에러가 발생했습니다. 로그인페이지로 넘어갑니다."); location.href="/login";</script>`)
+            }
         }
         else {
-            if(rows[0].password == _password)
+            if(rows[0] == null)
+            {
+                res.send(`<script type="text/javascript">alert("해당하는 계정이 없습니다."); location.href="/signup";</script>`);
+            }
+            else if(rows[0].password == _password)
             {
                 console.log('user CHK');  
                 req.session.displayName = rows[0].displayName;

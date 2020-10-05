@@ -20,7 +20,7 @@ router.delete('/:id', (req, res)=>{
 });
 
 router.get('/', (req, res)=>{
-    res.render('page');
+    res.redirect('page');
 })
 
 module.exports=router;
