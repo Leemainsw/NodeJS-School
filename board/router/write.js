@@ -21,11 +21,11 @@ router.post('/', (req, res)=>{
         else console.log('Inserted');
     })
 
-    res.redirect('list');
+    res.redirect('/page');
 })
 
 router.get('/', (req, res)=>{
-     res.render('write', {displayname:req.session.displayName});
+    res.render('write', {displayname:req.session.displayName});
 })
 
 module.exports=router;

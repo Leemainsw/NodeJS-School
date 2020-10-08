@@ -25,7 +25,7 @@ router.get('/:id', (req, res)=>{
     })
 })
 
-router.post('/:id', (req, res)=>{
+router.put('/:id', (req, res)=>{
     const _id = req.params.id;
     const _content = req.body.content;
     const _title = req.body.title;
@@ -36,12 +36,8 @@ router.post('/:id', (req, res)=>{
         else
             console.log('Updated');
 
-        res.redirect('/list');
+        res.redirect('/page');
     });
-
-    // update query 사용
-    // 테이블도 수정되어야 함
-    // 리스트 보이게 redirect
 })
 
 module.exports=router;
