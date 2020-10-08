@@ -22,7 +22,11 @@ router.post('/',(req,res) => {
             var searchTitle='SELECT * FROM board WHERE title LIKE "%' + title + '%"';
             conn.query(searchTitle, function (err, rows) {
                 if (err) console.error("err : " + err);
+<<<<<<< HEAD
                 res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true, session:req.session.displayName});
+=======
+                res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true});
+>>>>>>> 77b6fa3e65460bddbdb2a4b7c1c6ea9278096031
             });
         }
         else if (select == "writer")
@@ -30,7 +34,11 @@ router.post('/',(req,res) => {
             var writer = req.body.searchText;
             conn.query(sql.searchName, [writer], function (err, rows) {
                 if (err) console.error("err : " + err);
+<<<<<<< HEAD
                 res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true, session:req.session.displayName});
+=======
+                res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true});
+>>>>>>> 77b6fa3e65460bddbdb2a4b7c1c6ea9278096031
             });
         }
     }

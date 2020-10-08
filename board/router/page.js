@@ -10,8 +10,12 @@ router.get('/', (req, res, next)=>{
         var sql = "SELECT * FROM board;";
         conn.query(sql, function (err, rows) {
             if (err) console.error("err : " + err);
+<<<<<<< HEAD
             console.log(req.session.displayName);
             res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true, session:req.session.displayName});
+=======
+            res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true});
+>>>>>>> 77b6fa3e65460bddbdb2a4b7c1c6ea9278096031
         });
     }
     else{
@@ -28,7 +32,11 @@ router.get('/:page',(req,res,next) => {
         var sql = "SELECT * FROM board;";
         conn.query(sql, function (err, rows) {
             if (err) console.error("err : " + err);
+<<<<<<< HEAD
             res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true, session:req.session.displayName});
+=======
+            res.render('page', { rows: rows, page:page, length:rows.length-1, page_num:5, pass:true});
+>>>>>>> 77b6fa3e65460bddbdb2a4b7c1c6ea9278096031
         });
     }
     else 
