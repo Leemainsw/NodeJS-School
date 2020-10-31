@@ -1,0 +1,13 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body, html, header, section, footer, div, aside, p, ul, ol, li, form, table{
+    margin: 0;
+    padding: 0;
+}
+
+.container {max-width: 1920px; max-height:1080px; margin:0; padding:0;}
+
+.form-group label{font-weight: bold;}
+

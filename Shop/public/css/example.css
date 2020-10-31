@@ -1,0 +1,20 @@
+.col-sm{padding:0;}
+footer{border-top: 1px solid rgb(203,203,203);}
+/* 성별 */
+.sex{position: relative; margin-bottom: 35px;}
+
+.block{position: absolute;left: 50%;transform: translateX(-50%);}
+
+.form-check{margin-right: 10px;display: inline;}
+
+/* 유저 정보 */
+.userinfo{position: absolute;left: 50%;transform: translateX(-50%);}
+
+.measure-select{margin-top: 50px;}
+
+.tableFixHead          { overflow-y: auto; height: 500px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }

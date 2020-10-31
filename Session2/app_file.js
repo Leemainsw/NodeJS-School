@@ -2,14 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const fileStore=require('session-file-store')(session);
+const md5=require('md5');
 const app = express();
 const port = 3004;
 
 const user={
     username : 'kim',
-    password : '1111',
+    password : 'b59c67bf196a4758191e42f76670ceba',
     displayName : 'WISH'
 };
+
+function sha1(pwd, salt) { return sha256(pwd+salt); }
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -59,6 +62,8 @@ app.post('/login', (req, res)=>{
     if(name == user.username &&
         pw == user.password)
     {
+        console.log('로그인');
+        console.log(pw == user.password);
         req.session.displayName = user.displayName;
         res.redirect('/welcome');
     //     console.log(`${name}님, 환영합니다!`);

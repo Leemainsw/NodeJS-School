@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row nav bg-dark">
+            <!-- header -->
+            <div class="col-sm" style="padding:0;">
+                <!-- nav -->
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <span class="date" style="color:white;">2018년 10월 11일 목요일</span>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <%=name %>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/logout">로그아웃</a>
+                                    <a class="dropdown-item" href="#">마이페이지</a>    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- nav -->
+            </div>
+            <!-- header -->
+        </div>
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">IMAGE</th>
+                <th scope="col">이름</th>
+                <th scope="col">수량</th>
+                <th scope="col">장바구니</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td><img src="img/1.jpg"></td>
+                <td>브래드 가방</td>
+                <td>300000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td><img src="img/2.jpg"></td>
+                <td>프랜치 가방</td>
+                <td>400000</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td><img src="img/1.jpg"></td>
+                <td>브래드 가방 버전2</td>
+                <td>600000</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+    <!-- container -->
+</body>
+</html>

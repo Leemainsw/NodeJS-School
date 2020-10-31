@@ -1,9 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const fileStore=require('session-file-store')(session);
+const mysql = require('mysql');
+var MySQLStore = require('express-mysql-session')(session);
 const app = express();
 const port = 3004;
+
+// const conn = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '1234',
+//     database: 'test'
+// });
+var options = {
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'test'
+};
 
 const user={
     username : 'kim',
@@ -23,8 +37,7 @@ app.use(session({
   // 세션을 실제로 사용하기 전 까지는 sid를 발급하지 말아라
   saveUninitialized: true,
 
-  store: new fileStore,
-  secret: 'keyboard cat'
+  store: new MySQLStore(options)
 }))
 
 app.get('/welcome', (req, res)=>{
@@ -42,7 +55,6 @@ app.get('/logout', (req, res)=>{
 
 app.get('/login', (req, res)=>{
     let output = `
-
     <form method='post' actiond ='/login'>
         <p><input type ='text' name = 'username' placeholder='회원이름'></p>
         <p><input type="password" name='passwd' placeholder="회원비밀번호"></p>

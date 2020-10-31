@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const fileStore=require('session-file-store')(session);
 const app = express();
 const port = 3004;
 
@@ -21,10 +20,7 @@ app.use(session({
   // 접속 할 때마다 sid를 새로 발급하지 말아라
   resave: false,
   // 세션을 실제로 사용하기 전 까지는 sid를 발급하지 말아라
-  saveUninitialized: true,
-
-  store: new fileStore,
-  secret: 'keyboard cat'
+  saveUninitialized: true
 }))
 
 app.get('/welcome', (req, res)=>{
@@ -42,7 +38,6 @@ app.get('/logout', (req, res)=>{
 
 app.get('/login', (req, res)=>{
     let output = `
-
     <form method='post' actiond ='/login'>
         <p><input type ='text' name = 'username' placeholder='회원이름'></p>
         <p><input type="password" name='passwd' placeholder="회원비밀번호"></p>

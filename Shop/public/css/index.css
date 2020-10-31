@@ -1,0 +1,5 @@
+
+.login-form{ position: absolute; width: 400px; height: 400px; left: 50%; top: 50%;  transform: translate(-50%, -50%);}
+
+.form-group.signup-help{margin-top: 20px;}
+
